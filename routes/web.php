@@ -23,9 +23,9 @@ Route::get('/web','WebController@homePage')->name('web');
 
 Route::get('/about','WebController@about')->name('about');
 
-Route::get('/store','WebController@store')->name('store');
+// Route::get('/store','WebController@store')->name('store');
 
-Route::get('/service','WebController@service')->name('service');
+// Route::get('/service','WebController@service')->name('service');
 
 Route::get('/contact','WebController@contact')->name('contact');
 
@@ -36,3 +36,9 @@ Route::get('/delivery','WebController@delivery')->name('delivery');
 Route::get('/product','WebController@product')->name('product');
 
 Route::get('/return','WebController@return')->name('return');
+
+//Resource for store
+Route::resource('/store', 'StoreController');
+// Route::resource('/service', 'ServiceController');
+Route::get('/service/{id}','ServiceController@showService');
+Route::get('/admin','AdminController@admin')->name('admin')->middleware('admin');

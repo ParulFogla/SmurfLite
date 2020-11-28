@@ -56,7 +56,16 @@
                                         <ul id="navigation">
                                             <li><a href="{{ route('web')}}">Home</a></li>
                                             <li><a href="{{ route('about')}}">About</a></li>
-                                            <li><a href="{{ route('store')}}">Store</a>
+                                            <li><a href="{{ route('store.index')}}">Store</a>
+                                                <!-- <ul class="submenu">
+                                                    <li><a href="blog.html">Valorant</a></li>
+                                                    <li><a href="blog_details.html">CSGO</a></li>
+                                                    <li><a href="elements.html">PubG</a></li>
+                                                    <li><a href="elements.html">PubG Mobile</a></li>
+                                                    <li><a href="elements.html">GTA V</a></li>
+                                                </ul> -->
+                                            </li>
+                                            <!-- <li><a href="#">Services</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">Valorant</a></li>
                                                     <li><a href="blog_details.html">CSGO</a></li>
@@ -64,23 +73,44 @@
                                                     <li><a href="elements.html">PubG Mobile</a></li>
                                                     <li><a href="elements.html">GTA V</a></li>
                                                 </ul>
-                                            </li>
-                                            <li><a href="{{ route('service')}}">Services</a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">Valorant</a></li>
-                                                    <li><a href="blog_details.html">CSGO</a></li>
-                                                    <li><a href="elements.html">PubG</a></li>
-                                                    <li><a href="elements.html">PubG Mobile</a></li>
-                                                    <li><a href="elements.html">GTA V</a></li>
-                                                </ul>
-                                            </li>
+                                            </li> -->
                                             <li><a href="{{ route('contact')}}">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
-                                <div class="header-right-btn f-right d-none d-lg-block ml-20">
+                                <!-- <div class="header-right-btn f-right d-none d-lg-block ml-20">
+                                    <a href="{{ route('login')}}" class="btn header-btn">Login/Register</a>
+                                </div> -->
+                                <ul class="navbar-nav ml-auto">
+                                    <!-- Authentication Links -->
+                                    @guest
+                                        @if (Route::has('register'))
+                                            <li class="nav-item">
+                                            <div class="header-right-btn f-right d-none d-lg-block ml-20">
                                     <a href="{{ route('login')}}" class="btn header-btn">Login/Register</a>
                                 </div>
+                                            </li>
+                                        @endif
+                                    @else
+                                        <li class="nav-item dropdown">
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                {{ Auth::user()->name }}
+                                            </a>
+
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                                document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}
+                                                </a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </div>
+                                        </li>
+                                    @endguest
+                                </ul>
                             </div>
                         </div>   
                         <!-- Mobile Menu -->
