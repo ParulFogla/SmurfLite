@@ -42,3 +42,8 @@ Route::resource('/store', 'StoreController');
 // Route::resource('/service', 'ServiceController');
 Route::get('/service/{id}','ServiceController@showService');
 Route::get('/admin','AdminController@admin')->name('admin')->middleware('admin');
+
+Route::post('/putdata','StoreController@putData');
+Route::get('/putdata','StoreController@formData');
+
+Route::post('/itemlist/putdata','StoreController@listData');

@@ -32,6 +32,8 @@
                 
             @endforeach
             </div>
+
+            
 <!-- Store End-->
 
         </div>
